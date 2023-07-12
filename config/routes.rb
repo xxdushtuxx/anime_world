@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comic_books/index'
+  get 'comic_books/show'
   root 'home#index'
   
   get 'home/index'
