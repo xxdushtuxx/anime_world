@@ -80,31 +80,21 @@ publishers.each do |publisher|
 end
 =end
 
-def fetch_and_create_characters
-    api_key = '7e24bc3842ca1a7a8613c14172b484c34f988e62'
-    url = "https://comicvine.gamespot.com/api/characters/?api_key=#{api_key}&format=json"
-  
-    response = HTTParty.get(url)
-    data = JSON.parse(response.body)
-  
-    if response.success? && data['error'] == 'OK'
-      characters = data['results']
-  
-      characters.each do |character_data|
-        Character.create!(
-          name: character_data['name'],
-          deck: character_data['deck'],
-          image: character_data['image']['medium_url'],
-          origin: character_data['origin']['name']
-        )
-      end
-  
-      puts 'Characters created successfully!'
-    else
-      puts 'Failed to fetch character data from the API.'
-    end
+require 'httparty'
+
+# Fetch publishers data
+publishers_url = 'https://comicvine.gamespot.com/api/publishers/?api_key=7e24bc3842ca1a7a8613c14172b484c34f988e62&format=json'
+publishers_response = HTTParty.get(publishers_url)
+publishers_data = publishers_response['results']
+
+# Create publishers records
+publishers_data.each do |publisher|
+    Publisher.create(
+      name: publisher['name'] || 'N/A',
+      deck: publisher['deck'] || 'N/A',
+      image_thumb: publisher['image']['thumb_url'] || 'N/A',
+      image_small: publisher['image']['small_url'] || 'N/A'
+    )
   end
-  
-  # Call the method to fetch and create characters
-  fetch_and_create_characters
+
 
