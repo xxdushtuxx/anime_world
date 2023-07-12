@@ -10,12 +10,15 @@
   <body>
     <%= render 'shared/menu' %>
 
-    <% @publishers.each do |publisher| %>
-    <h2><%= publisher.name %></h2>
-    <p><%= publisher.deck %></p>
-    <img src="<%= publisher.image_thumb %>" alt="<%= publisher.name %> Thumbnail">
-    <% end %>
-    <%= paginate @publishers %>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+            <h1 class="mb-4"><%= @publisher.name %></h1>
+            <p class="mb-3">Deck: <%= @publisher.deck %></p>
+            <img src="<%= @publisher.image_small %>" alt="<%= @publisher.name %> Small image" class="img-fluid">
+            </div>
+        </div>
+    </div>
 
   </body>
 </html>

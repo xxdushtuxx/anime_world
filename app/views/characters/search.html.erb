@@ -11,16 +11,22 @@
     <%= render 'shared/menu' %>
 
     <% @characters.each do |character| %>
-  <div>
-    <%= link_to character.name, character_path(character) %>
+  <div class="d-flex flex-column align-items-center">
+    <p>Results found based on your search:</p>
+    <ul>
+        <li>
+            <%= link_to character.name, character_path(character), style: "text-decoration: none;" %>
+        </li>
+    </ul>
+    
   </div>
 <% end %>
 
 <%= paginate @characters %>
 
 <% if flash[:notice].present? %>
-  <div class="alert alert-info">
-    <%= flash[:notice] %>
+  <div class="alert alert-info text-align-center">
+    <p><%= flash[:notice] %></p>
   </div>
 <% end %>
 

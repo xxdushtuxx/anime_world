@@ -10,13 +10,18 @@
   <body>
     <%= render 'shared/menu' %>
 
-    <!-- app/views/characters/show.html.erb -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+            <h1 class="mb-4"><%= @character.name %></h1>
+            <p class="mb-3">Deck: <%= @character.deck %></p>
+            <p class="mb-3">Origin: <%= @character.origin %></p>
+            <p class="mb-3">Publisher: <%= @character.publisher.name %></p>
+            <img src="<%= @character.image_small %>" alt="<%= @character.name %> Small image" class="img-fluid">
+            </div>
+        </div>
+    </div>
 
-    <h1><%= @character.name %></h1>
-    <p>Deck: <%= @character.deck %></p>
-    <p>Origin: <%= @character.origin %></p>
-    <p>Publisher: <%= @character.publisher.name %></p>
-    <img src="<%= @character.image_small %>" alt="<%= @character.name %> Small image">
-    
+
   </body>
 </html>
