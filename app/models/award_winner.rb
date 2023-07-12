@@ -1,0 +1,2 @@
+class AwardWinner < ApplicationRecord
+end

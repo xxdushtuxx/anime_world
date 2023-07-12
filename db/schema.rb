@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_12_002217) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_12_010500) do
+  create_table "award_winners", force: :cascade do |t|
+    t.integer "award_id", null: false
+    t.string "award_receiver_type", null: false
+    t.integer "award_receiver_id", null: false
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["award_id"], name: "index_award_winners_on_award_id"
+    t.index ["award_receiver_type", "award_receiver_id"], name: "index_award_winners_on_award_receiver"
+  end
+
   create_table "awards", force: :cascade do |t|
     t.string "award_name"
     t.text "award_description"
@@ -49,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_002217) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "award_winners", "awards"
   add_foreign_key "awards", "awards"
   add_foreign_key "characters", "publishers"
 end
