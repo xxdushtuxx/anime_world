@@ -80,8 +80,7 @@ publishers.each do |publisher|
 end
 =end
 
-require 'httparty'
-
+=begin
 # Fetch publishers data
 publishers_url = 'https://comicvine.gamespot.com/api/publishers/?api_key=7e24bc3842ca1a7a8613c14172b484c34f988e62&format=json'
 publishers_response = HTTParty.get(publishers_url)
@@ -96,5 +95,32 @@ publishers_data.each do |publisher|
       image_small: publisher['image']['small_url'] || 'N/A'
     )
   end
+=end
+=begin
+# Fetch characters data
+characters_url = 'https://comicvine.gamespot.com/api/characters/?api_key=7e24bc3842ca1a7a8613c14172b484c34f988e62&format=json'
+characters_response = HTTParty.get(characters_url)
+#puts characters_response.inspect # Debugging output
+characters_data = characters_response['results']
 
+
+# Create characters records
+characters_data.each do |character|
+  publisher_name = character['publisher']['name']
+  publisher = Publisher.find_by(name: publisher_name)
+
+  next if publisher.nil? || publisher['name'].nil?
+
+  origin = character['origin']
+  origin_name = origin && origin['name'] ? origin['name'] : 'N/A'
+  Character.create(
+    name: character['name'] || 'N/A',
+    deck: character['deck'] || 'N/A',
+    image_thumb: character['image']['thumb_url'] || 'N/A',
+    image_small: character['image']['small_url'] || 'N/A',
+    origin: origin_name,
+    publisher: publisher
+  )
+end
+=end
 
