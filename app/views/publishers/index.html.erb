@@ -20,8 +20,10 @@
                     <h2 class="card-title"><%= link_to publisher.name, publisher_path(publisher), style: "text-decoration: none;" %></h2>
                     <p class="card-text"><%= publisher.deck %></p>
                     <p>Number of Characters: <%= publisher.characters.count %></p>
-                    <div class="mt-auto">
-                    <%= link_to "Show Characters", publisher_characters_path(publisher), class: "btn btn-primary" %>
+                    <p>Number of Comic Books: <%= publisher.comic_books.count %></p>
+                    <div class="mt-auto d-flex flex-column justify-content-end">
+                        <%= link_to "Show Characters", publisher_characters_path(publisher), class: "btn btn-primary mb-2" %>
+                        <%= link_to "Show Comic Books", publisher_comic_books_path(publisher), class: "btn btn-primary" %>
                     </div>
                 </div>
                 </div>

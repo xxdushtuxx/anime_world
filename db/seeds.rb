@@ -161,3 +161,13 @@ else
 end
 =end
 
+Publisher.all.each do |publisher|
+  num_comic_books = rand(1..10)
+  
+  num_comic_books.times do
+    ComicBook.create(
+      publisher: publisher,
+      name: Faker::Book.title
+    )
+  end
+end

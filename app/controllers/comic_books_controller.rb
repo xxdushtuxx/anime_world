@@ -1,6 +1,6 @@
 class ComicBooksController < ApplicationController
   def index
-    @comic_books = ComicBook.all
+    @comic_books = ComicBook.page(params[:page]).per(30)
   end
 
   def show
