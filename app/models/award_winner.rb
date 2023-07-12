@@ -1,2 +1,5 @@
 class AwardWinner < ApplicationRecord
-end
+    belongs_to :award
+    belongs_to :award_receiver, polymorphic: true
+  end
+  
