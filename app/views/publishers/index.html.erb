@@ -11,11 +11,16 @@
     <%= render 'shared/menu' %>
 
     <% @publishers.each do |publisher| %>
-    <h2><%= publisher.name %></h2>
+    <h2><%= link_to publisher.name, publisher_path(publisher) %></h2>
     <p><%= publisher.deck %></p>
     <img src="<%= publisher.image_thumb %>" alt="<%= publisher.name %> Thumbnail">
+    
+    <p>Number of Characters: <%= publisher.characters.count %></p>
+    <%= link_to "Show Characters", publisher_characters_path(publisher) %>
     <% end %>
+
     <%= paginate @publishers %>
+
 
   </body>
 </html>

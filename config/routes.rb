@@ -1,16 +1,12 @@
 Rails.application.routes.draw do
-  get 'publishers/index'
-  get 'publishers/show'
-  get 'characters/index'
-  get 'characters/show'
+  root 'home#index'
+  
   get 'home/index'
   get 'home/about'
-
-  root 'home#index'
-  get 'about', to: 'home#about'
+  
   get 'characters/search', to: 'characters#search', as: 'character_search'
-
-
+  get 'publishers/:id/characters', to: 'publishers#characters', as: 'publisher_characters'
+  
   resources :characters, only: [:index, :show]
   resources :publishers, only: [:index, :show]
 end
