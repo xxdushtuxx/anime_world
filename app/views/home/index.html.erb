@@ -46,6 +46,8 @@
     <p><%= character.deck %></p>
     <img src="<%= character.image_thumb %>" alt="<%= character.name %> Thumbnail">
     <% end %>
+    <%= paginate @characters %>
+
   </body>
 </html>
 
