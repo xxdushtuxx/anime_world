@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_12_022222) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_12_194744) do
   create_table "award_winners", force: :cascade do |t|
     t.integer "award_id", null: false
     t.string "award_receiver_type", null: false
@@ -51,6 +51,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_022222) do
     t.index ["publisher_id"], name: "index_characters_on_publisher_id"
   end
 
+  create_table "comic_books", force: :cascade do |t|
+    t.integer "publisher_id", null: false
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publisher_id"], name: "index_comic_books_on_publisher_id"
+  end
+
   create_table "publishers", force: :cascade do |t|
     t.string "name"
     t.text "deck"
@@ -63,4 +71,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_022222) do
   add_foreign_key "award_winners", "awards"
   add_foreign_key "awards", "awards"
   add_foreign_key "characters", "publishers"
+  add_foreign_key "comic_books", "publishers"
 end

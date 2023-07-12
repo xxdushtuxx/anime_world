@@ -114,7 +114,7 @@ characters_data.each do |character|
   origin = character['origin']
   origin_name = origin && origin['name'] ? origin['name'] : 'N/A'
   Character.create(
-    name: character['name'] || 'N/A',
+    name: character['name'],
     deck: character['deck'] || 'N/A',
     image_thumb: character['image']['thumb_url'] || 'N/A',
     image_small: character['image']['small_url'] || 'N/A',
@@ -139,6 +139,7 @@ end
 
 =end
 
+=begin
 # Retrieve all publishers
 publishers = Publisher.all
 
@@ -158,3 +159,5 @@ if duplicate_names.present?
 else
   puts "No Duplicate Publishers Found."
 end
+=end
+
