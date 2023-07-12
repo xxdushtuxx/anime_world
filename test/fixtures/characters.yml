@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  publisher: one
+  name: MyString
+  deck: MyText
+  image_thumb: MyString
+  image_small: MyString
+  origin: MyString
+
+two:
+  publisher: two
+  name: MyString
+  deck: MyText
+  image_thumb: MyString
+  image_small: MyString
+  origin: MyString
