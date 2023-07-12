@@ -10,12 +10,27 @@
   <body>
     <%= render 'shared/menu' %>
 
-    <% @characters.each do |character| %>
-    <h2><%= character.name %></h2>
-    <p><%= character.deck %></p>
-    <img src="<%= character.image_thumb %>" alt="<%= character.name %> Thumbnail">
-    <% end %>
-    <%= paginate @characters %>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Thumbnail</th>
+                <th>Name</th>
+                <th>Deck</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @characters.each do |character| %>
+            <tr>
+                <td><img src="<%= character.image_thumb %>" alt="<%= character.name %> Thumbnail"></td>
+                <td><%= link_to character.name, character_path(character), style: "text-decoration: none;" %></td>
+                <td><%= character.deck %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+<%= paginate @characters %>
+
 
   </body>
 </html>

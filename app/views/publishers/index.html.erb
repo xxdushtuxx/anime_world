@@ -10,16 +10,28 @@
   <body>
     <%= render 'shared/menu' %>
 
-    <% @publishers.each do |publisher| %>
-    <h2><%= link_to publisher.name, publisher_path(publisher) %></h2>
-    <p><%= publisher.deck %></p>
-    <img src="<%= publisher.image_thumb %>" alt="<%= publisher.name %> Thumbnail">
-    
-    <p>Number of Characters: <%= publisher.characters.count %></p>
-    <%= link_to "Show Characters", publisher_characters_path(publisher) %>
-    <% end %>
+    <div class="container">
+        <div class="row">
+            <% @publishers.each do |publisher| %>
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                <img src="<%= publisher.image_thumb %>" class="card-img-top" alt="<%= publisher.name %> Thumbnail">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="card-title"><%= link_to publisher.name, publisher_path(publisher), style: "text-decoration: none;" %></h2>
+                    <p class="card-text"><%= publisher.deck %></p>
+                    <p>Number of Characters: <%= publisher.characters.count %></p>
+                    <div class="mt-auto">
+                    <%= link_to "Show Characters", publisher_characters_path(publisher), class: "btn btn-primary" %>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
+    </div>
 
-    <%= paginate @publishers %>
+<%= paginate @publishers %>
+
 
 
   </body>
