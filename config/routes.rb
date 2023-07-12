@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
   get 'about', to: 'home#about'
+  get 'characters/search', to: 'characters#search', as: 'character_search'
+
 
   resources :characters, only: [:index, :show]
   resources :publishers, only: [:index, :show]

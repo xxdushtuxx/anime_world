@@ -1,2 +1,6 @@
-<h1>Publishers#index</h1>
-<p>Find me in app/views/publishers/index.html.erb</p>
+<% @publishers.each do |publisher| %>
+    <h2><%= publisher.name %></h2>
+    <p><%= publisher.deck %></p>
+    <img src="<%= publisher.image_thumb %>" alt="<%= publisher.name %> Thumbnail">
+    <% end %>
+    <%= paginate @publishers %>publishers

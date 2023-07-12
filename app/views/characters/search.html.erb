@@ -1,0 +1,14 @@
+<% @characters.each do |character| %>
+  <div>
+    <%= link_to character.name, character_path(character) %>
+    <!-- Display other character details as needed -->
+  </div>
+<% end %>
+
+<%= paginate @characters %>
+
+<% if flash[:notice].present? %>
+  <div class="alert alert-info">
+    <%= flash[:notice] %>
+  </div>
+<% end %>

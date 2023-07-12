@@ -124,3 +124,37 @@ characters_data.each do |character|
 end
 =end
 
+=begin
+
+# Retrieve all characters
+characters = Character.all
+
+# Group characters by name and filter duplicates
+duplicate_names = characters.group_by(&:name).select { |_name, group| group.size > 1 }
+
+# Remove duplicates
+duplicate_names.each do |_name, group|
+  group[1..].each(&:destroy)
+end
+
+=end
+
+# Retrieve all publishers
+publishers = Publisher.all
+
+# Group publishers by name and filter duplicates
+duplicate_names = publishers.group_by(&:name).select { |_name, group| group.size > 1 }
+
+# Display duplicate publishers
+if duplicate_names.present?
+  puts "Duplicate Publishers Found:"
+  duplicate_names.each do |name, group|
+    puts "Name: #{name}"
+    group.each do |publisher|
+      puts "ID: #{publisher.id}"
+      # Display other publisher details as needed
+    end
+  end
+else
+  puts "No Duplicate Publishers Found."
+end
