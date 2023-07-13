@@ -2,7 +2,7 @@
     <%= render 'shared/menu' %>
 <div class="container">
     <% if comic_books.present? %>
-  <h2>Comic Books</h2>
+  <h2>Comic Books by <%= @publisher.name %></h2>
   <ul>
     <% comic_books.each do |comic_book| %>
       <li>

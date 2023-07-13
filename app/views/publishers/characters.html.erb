@@ -2,7 +2,7 @@
     <%= render 'shared/menu' %>
 <div class="container">
     <% if characters.present? %>
-  <h2>Characters</h2>
+  <h2>Characters by <%= @publisher.name %></h2>
   <ul>
     <% characters.each do |character| %>
       <li>

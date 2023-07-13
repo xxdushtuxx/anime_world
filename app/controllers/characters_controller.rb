@@ -5,6 +5,7 @@ class CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
+    @publisher = @character.publisher
   end
 
   def search

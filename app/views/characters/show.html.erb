@@ -7,7 +7,7 @@
             <h1 class="mb-4"><%= @character.name %></h1>
             <p class="mb-3">Deck: <%= @character.deck %></p>
             <p class="mb-3">Origin: <%= @character.origin %></p>
-            <p class="mb-3">Publisher: <%= @character.publisher.name %></p>
+            <p class="mb-3">Publisher: <%= link_to @publisher.name, publisher_characters_path(@publisher), class: "btn btn-primary mb-2" %></p>
             <img src="<%= @character.image_small %>" alt="<%= @character.name %> Small image" class="img-fluid">
             </div>
         </div>
