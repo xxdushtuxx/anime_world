@@ -10,7 +10,7 @@
   <body>
     <%= render 'shared/menu' %>
 
-    
+    <div class="container">
     <h1>About AnimeWorld</h1>
 
     <p>AnimeWorld is a website that provides a dataset of comic characters and publishers.</p>
@@ -36,11 +36,18 @@
     <p>
         AnimeWorld also includes a Comic Book table, where comic books published by each publishers are enlisted using the Faker gem.
     </p>
+    <p>Relationships:</p>
+    <ul>
+        <li>One Publisher has many Characters (One-to-Many: One Publisher, Many Characters)</li>
+        <li>One Publisher has many ComicBooks (One-to-Many: One Publisher, Many ComicBooks)</li>
+        <li>Each Character belongs to a Publisher (Many-to-One: Many Characters, One Publisher)</li>
+        <li>Each ComicBook belongs to a Publisher (Many-to-One: Many ComicBooks, One Publisher)</li>
+    </ul>
     <div class="text-center">
-    <img src="<%= asset_path('IntroToRailsERD.jpg') %>" alt="ERD Image">
+        <img src="<%= asset_path('IntroToRailsERD.jpg') %>" alt="ERD Image">
     </div>
-
-
+    <p>Created by: Md Mahamudun Alam Mahin</p>
+    </div>
 
 
   </body>

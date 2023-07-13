@@ -9,7 +9,7 @@
   </head>
   <body>
     <%= render 'shared/menu' %>
-
+<div class="container">
     <% @characters.each do |character| %>
   <div class="d-flex flex-column align-items-center">
     <p>Results found based on your search:</p>
@@ -29,6 +29,6 @@
     <p><%= flash[:notice] %></p>
   </div>
 <% end %>
-
+</div>
   </body>
 </html>
