@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   get 'characters/search', to: 'characters#search', as: 'character_search'
   get 'publishers/:id/characters', to: 'publishers#characters', as: 'publisher_characters'
+  get 'publishers/:id/comic_books', to: 'publishers#comic_books', as: 'publisher_comic_books'
   
   resources :characters, only: [:index, :show]
   resources :publishers, only: [:index, :show] do
